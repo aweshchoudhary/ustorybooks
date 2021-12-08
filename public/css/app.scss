@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+}
+
+$primary: #ff5403;
+$trans: 0.2s ease-in-out;
+
+body,
+html {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+  font-family: poppins;
+  font-size: 62.45%;
+}
+p,
+a,
+button,
+div {
+  font-size: 1.8rem !important;
+}
+h1 {
+  font-size: 3rem;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.owl-nav {
+  position: absolute;
+  top: -9rem;
+  right: 0;
+  .owl-next,
+  .owl-prev {
+    line-height: 20;
+    span {
+      font-size: 6rem !important;
+      margin: 0 0.5rem;
+      color: $primary;
+    }
+  }
+}
+.ck-content {
+  height: 40rem !important;
+  width: 100% !important;
+}
+
+.menuBtn {
+  display: none;
+  i {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+}
+.navList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  li {
+    padding: 0 0.3rem;
+    list-style: none;
+  }
+}
+.navBtn {
+  display: none;
+}
+.footerNav {
+  li {
+    list-style: none;
+    a {
+      color: #fff !important;
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media screen and(max-width: 760px) {
+  html {
+    font-size: 50% !important;
+  }
+  .menuBtn {
+    display: block;
+  }
+  .navBtn {
+    display: block;
+  }
+  .navList {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 4rem;
+    background: #fff;
+    height: 100%;
+    width: 60%;
+    transform: translateX(100%);
+    transition: 0.4s transform ease-in-out;
+    li {
+      padding: 1rem 0;
+    }
+  }
+  #navBtn:checked ~ .navList {
+    transform: translateX(0);
+  }
+  .black {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.102);
+    z-index: 1;
+    visibility: hidden;
+    transition: 0.4s all ease-in-out;
+  }
+  #navBtn:checked ~ .black {
+    visibility: visible;
+  }
+  .user-details {
+    text-align: center;
+  }
+}

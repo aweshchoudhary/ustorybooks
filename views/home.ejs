@@ -1,0 +1,103 @@
+<title>USTORY - Home</title>
+<section class="border-bottom py-5">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="w-100">
+          <% if (userAuth) { %>
+            <h1 class="h1 display-md-1 text-capitalize">
+              Glad to see you <span class="text-primary">
+                <%= user.firstName %>
+              </span>, Writer
+              your own beautiful stories,
+              <span class="text-primary">publish</span> to share with
+              <span class="text-primary"> friends</span>
+            </h1>
+            <% } else { %>
+              <h1 class="display-md-1 text-capitalize">
+                Welcome to <span class="text-primary text-uppercase">ustory</span> app, Beautiful world for stories,
+                Writer
+                your own beautiful stories,
+                <span class="text-primary">publish</span> to share with
+                <span class="text-primary"> friends</span>
+              </h1>
+              <% } %>
+                <a href="/login" class="btn  py-4 btn-primary btn-lg mt-4 px-5 text-light">Write Story <i
+                    class="fas fa-arrow-right    "></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-5">
+          Popular Stories
+          <div class="bg-primary mx-auto mt-3" style="height: 5px; width: 150px"></div>
+        </h1>
+      </div>
+      <div class="col-12">
+        <div class="owl-carousel owl-theme">
+          <% stories.forEach(story=> { %>
+            <div class="item">
+              <%- include('partials/card', {user, story}) %>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-5">
+          Popular Accounts
+          <div class="bg-primary mx-auto mt-3" style="height: 5px; width: 150px"></div>
+        </h1>
+      </div>
+      <div class="col-12">
+        <div class="owl-carousel owl-theme">
+          <% users.forEach(user=> { %>
+            <div class="item">
+              <div class="card text-left p-4 mx-auto" style="min-height: 35rem; width: 30rem">
+                <div class="card_header  w-100">
+                  <div class="mx-auto" style="
+                      height: 30%;
+                      width: 30%;
+                      margin-bottom: 10px;
+                    ">
+                    <img class="img" src="<%= user.image %> " alt="user profile picture" />
+                  </div>
+                  <div class="text-center">
+                    <div class="user-name">
+                      <h2>
+                        <%= user.displayName %>
+                      </h2>
+                    </div>
+                    <p class="user-id lead text-primary">@ <%= user.displayName.replace(' ', '') %> </p>
+                    <div class="total-like"><i class="fas fa-eye text-primary"></i> 
+                      <% if (user.totalViews == null) { %>
+                        0
+                       <% } else { %>
+                        <%= user.totalViews %> 
+                      <% } %> 
+                    
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body text-center my-4">
+                  <a href="/dashboard/<%= user.googleId %> " class="btn btn-primary btn-sm text-light px-5 py-2"><i
+                      class="fas fa-eye    "></i> View Profile</a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

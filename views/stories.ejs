@@ -1,0 +1,19 @@
+<title>USTORY - Stories</title>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-5">
+          Stories
+          <div class="bg-primary mx-auto mt-3" style="height: 5px; width: 150px"></div>
+        </h1>
+      </div>
+
+      <% userStories.forEach((story)=> { %>
+        <div class="col-md-4">
+          <%- include("partials/card", {user, story}) %>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+</section>

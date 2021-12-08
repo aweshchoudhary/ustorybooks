@@ -1,0 +1,37 @@
+<title>USTORY - Create Story</title>
+<section>
+  <div class="container mt-3 mb-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-5">
+          Edit Story
+          <div class="bg-primary mx-auto mt-3" style="height: 5px; width: 150px"></div>
+        </h1>
+      </div>
+      <div class="col-12">
+        <form action="/story/update/<%= story.id %>" method="post">
+          <div class="mb-4">
+            <label for="story-title" class="form-label">Story Title</label>
+              <input type="text" class="form-control py-3 fs-3" name="storyTitle" value="<%= story.storyTitle %>" id="story-title"
+              placeholder="Enter Your Story Title">
+            <div class="warning py-3">*Title must 20 characters long and max 40 characters allowed. </div>
+          </div>
+          <div class="mb-4">
+            <select class="form-control px-5 py-3" style="font-size: 1.8rem;cursor: pointer;" name="uploadType"
+              id="sort-select">
+              <option>Public</option>
+              <option>Private</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label for="editor" class="form-label">Enter Your Story Description</label>
+              <textarea class="form-control fs-3" name="storyDescription" id="editor" style="height: 40rem;"
+              placeholder="Max 500 characters are allowed."><%= story.storyDescription %></textarea>
+          </div>
+          <button class="btn btn-primary btn-lg text-light px-5 py-4" type="submit">Re-Publish</button>
+          <a href="/" class="btn btn-primary btn-lg text-light px-5 py-4 mx-4">Cancel </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

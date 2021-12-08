@@ -1,0 +1,35 @@
+<nav class="navbar d-flex justify-content-between bg-light px-5 pt-5 pb-4 border-bottom h-100 align-items-center">
+    <div class="brand w-25 text-primary" style="font-family: Pacifico;">
+        <h1>USTORY</h1>
+    </div>
+    <input type="checkbox" id="navBtn" style="position: absolute; top: 0; left: 0; visibility: hidden;">
+    <label class="text-primary navBtn" for="navBtn" style="font-size: 3rem; cursor: pointer;">
+        <i class="fas fa-bars"></i>
+    </label>
+    <div class="black">
+    </div>
+    <ul class="navList text-primary text-capitalize">
+        <label for="navBtn" class="navBtn"
+            style="position: absolute; top: 3rem; left: 3rem; font-size: 3rem; cursor: pointer;"><i
+                class="fa fa-times"></i></label>
+        <li class="mx-3"><a href="/" class="text-decoration-none"><i class="fa fa-home"
+                    style="margin-right: .6rem;"></i> Home</a>
+        </li>
+        <li class="mx-3"><a href="/stories" class="text-decoration-none "><i class="fas fa-book"
+                    style="margin-right: .6rem;"></i> stories</a>
+        </li>
+        <% if (userAuth) { %>
+            <li class="mx-3"><a href="/dashboard/<%= user.googleId %> " class="text-decoration-none "><i
+                        class="fas fa-user" style="margin-right: .6rem;"></i>
+                    <%= user.firstName %>
+                </a></li>
+            <li class="mx-3"><a href="/auth/logout"
+                    class="text-decoration-none btn btn-outline-primary px-5 py-2 h-100 align-items-center">Logout</a>
+            </li>
+            <% } else { %>
+                <li class="mx-3"><a href="/login"
+                        class="text-decoration-none btn btn-outline-primary px-5 py-2 h-100 align-items-center">Login</a>
+                </li>
+                <% } %>
+    </ul>
+</nav>
