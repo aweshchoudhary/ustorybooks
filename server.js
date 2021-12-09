@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === "developement") {
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Load config
-dotenv.config({ path: "./config.env" });
+dotenv.config();
 
 //Passport Config
 require("./config/passport")(passport);
