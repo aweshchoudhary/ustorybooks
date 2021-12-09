@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv");
+dotenv.config({ path: "./config.env" });
 const passport = require("passport");
 const morgan = require("morgan");
 const ejs = require("ejs");
@@ -18,11 +19,14 @@ if (process.env.NODE_ENV === "developement") {
   app.use(morgan("dev"));
 }
 
+//fav icon
+const favicon = require("serve-favicon");
+app.use(favicon(path.join(__dirname, "favicon.png")));
+
 //static folder setup
 app.use(express.static(path.join(__dirname, "/public")));
 
 // Load config
-dotenv.config();
 
 //Passport Config
 require("./config/passport")(passport);
